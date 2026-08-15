@@ -3201,3 +3201,709 @@ footer[role="contentinfo"] {
     border-radius: 14px;
   }
 }
+
+/* =========================================================
+   MOBILE OPTIMIZATIONS — phone-only (≤768px)
+   Desktop layout is NOT touched by anything below.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ── General section rhythm ── */
+  section {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 1.1rem;
+  }
+
+  /* ── Section headers ── */
+  .section-header.centered {
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .section-lead-quote {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-top: 0.8rem;
+  }
+
+  /* ── Hero ── */
+  #hero {
+    min-height: 100svh;
+    align-items: flex-start;
+    padding-top: 80px;
+    padding-bottom: 3rem;
+    background-position: 70% center;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    padding: 0 1.1rem;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-line-1,
+  .hero-line-2 {
+    white-space: normal;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+  }
+
+  /* Hero actions: stack vertically, full-width */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+    width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost,
+  .btn-youtube-link,
+  .btn-insta-link,
+  .btn-whatsapp-link {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  /* Hero stats bar: horizontal scroll on small screens */
+  .hero-stats-bar {
+    gap: 1rem;
+    padding: 0.6rem 1.1rem;
+    width: auto;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-top: 0.8rem;
+  }
+
+  .hero-stats-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stat-num {
+    font-size: 1.3rem;
+  }
+
+  .stat-lbl {
+    font-size: 0.6rem;
+    white-space: nowrap;
+  }
+
+  /* ── Difference cards ── */
+  .difference-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .diff-card {
+    padding: 1.8rem 1.4rem;
+    border-radius: 16px;
+  }
+
+  .diff-card h3 {
+    font-size: 1.2rem;
+  }
+
+  /* ── Vision / Together section ── */
+  .together-showcase-wrapper {
+    padding: 2rem 1.4rem;
+    border-radius: 18px;
+    margin-top: 1.5rem;
+  }
+
+  .together-desc {
+    font-size: 0.95rem;
+    margin: 0.8rem 0 1.2rem;
+  }
+
+  .together-features-list {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .tf-item {
+    padding: 0.9rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  /* ── Japa Sanga (App) section ── */
+  .japa-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .japa-visual {
+    order: -1;
+  }
+
+  .japa-app-title {
+    font-size: 1.8rem;
+  }
+
+  .japa-app-desc {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .japa-highlights {
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .j-highlight {
+    font-size: 0.9rem;
+  }
+
+  .btn-playstore-large {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.4rem;
+    border-radius: 14px;
+    font-size: 0.95rem;
+  }
+
+  .phone-mockup-container {
+    width: 185px;
+  }
+
+  .japa-glow-back {
+    width: 260px;
+    height: 260px;
+  }
+
+  /* ── Courses ── */
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .course-card {
+    padding: 1.8rem 1.4rem;
+    border-radius: 16px;
+  }
+
+  .course-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .course-desc {
+    font-size: 0.92rem;
+  }
+
+  .course-preregister-banner {
+    padding: 1.6rem 1.2rem;
+    border-radius: 16px;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .banner-text h3 {
+    font-size: 1.35rem;
+  }
+
+  /* ── Founders / Facilitators section ── */
+  #founders {
+    padding: 3rem 0;
+  }
+
+  .founder-profile,
+  .founder-profile--rtl {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .founder-portrait {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .founder-name {
+    font-size: 1.8rem;
+  }
+
+  .founder-credentials li {
+    font-size: 0.9rem;
+  }
+
+  .founder-separator {
+    margin: 2.5rem 0;
+  }
+
+  /* ── YouTube / Social hub ── */
+  .youtube-hub-card {
+    padding: 2rem 1.3rem;
+    border-radius: 18px;
+  }
+
+  .yt-header h2 {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+  }
+
+  .yt-header p {
+    font-size: 0.92rem;
+  }
+
+  .yt-actions-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .btn-social-card {
+    padding: 0.9rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  /* ── CTA section ── */
+  #cta {
+    padding: 4rem 1.1rem;
+    min-height: auto;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .cta-actions {
+    max-width: 100%;
+  }
+
+  .cta-actions .btn-primary,
+  .cta-actions .btn-ghost {
+    max-width: 100%;
+    font-size: 0.82rem;
+    padding: 0.85rem 1rem;
+  }
+
+  /* ── Footer ── */
+  body > footer {
+    padding: 3.5rem 0 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-logo-icon {
+    height: 52px;
+  }
+
+  .footer-col h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+  }
+
+  /* ── Scroll indicator ── */
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* ── Approach comparison ── */
+  .compare-col {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .compare-col-label h3 {
+    font-size: 1.3rem;
+  }
+
+  /* ── Screen-to-soul band ── */
+  .screen-to-soul {
+    padding: 2.5rem 1.1rem;
+  }
+
+  .sts-text {
+    font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+  }
+
+}
+
+/* =========================================================
+   MOBILE OPTIMIZATIONS — small phones (≤480px)
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: clamp(1.75rem, 8.5vw, 2.4rem);
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+  }
+
+  .hero-stats-bar {
+    padding: 0.55rem 0.9rem;
+    gap: 0.8rem;
+  }
+
+  .stat-num {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.55rem, 7.5vw, 2rem);
+  }
+
+  .diff-card {
+    padding: 1.5rem 1.1rem;
+  }
+
+  .together-showcase-wrapper {
+    padding: 1.6rem 1rem;
+  }
+
+  .phone-mockup-container {
+    width: 160px;
+  }
+
+  .japa-glow-back {
+    width: 220px;
+    height: 220px;
+  }
+
+  .youtube-hub-card {
+    padding: 1.6rem 1rem;
+  }
+
+  .yt-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .founder-portrait {
+    max-width: 190px;
+  }
+
+  .founder-name {
+    font-size: 1.55rem;
+  }
+
+  .testimonial-featured {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem 1.1rem;
+  }
+
+  .web-japa-demo-card {
+    padding: 1.8rem 1rem;
+    border-radius: 18px;
+  }
+
+  .modal-card {
+    padding: 2rem 1.4rem;
+    border-radius: 18px;
+  }
+
+  .legal-document-card {
+    padding: 1.8rem 1.2rem;
+    border-radius: 12px;
+  }
+
+}
+
+/* =========================================================
+   MOBILE CORRECTIONS — phone-only (≤768px)
+   Zero desktop changes. All rules wrapped in media query.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Fix 1: Nav "Socials" link — left-align like all other nav items */
+  .nav-item:last-child a {
+    text-align: left;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+  }
+
+  /* Fix 2: Hero social icon-buttons (YouTube / Instagram / WhatsApp)
+     — auto width, left-aligned, NOT stretched full-width */
+  .btn-youtube-link,
+  .btn-insta-link,
+  .btn-whatsapp-link {
+    width: auto !important;
+    align-self: flex-start;
+    max-width: fit-content;
+  }
+
+  /* Fix 3: Hero background — show right portion of image on mobile */
+  #hero {
+    background-position: right center;
+  }
+
+  /* Fix 4: Stats bar — no horizontal scroll; wrap items so all 3 show */
+  .hero-stats-bar {
+    display: flex !important;
+    flex-wrap: wrap;
+    overflow-x: visible !important;
+    width: 100%;
+    gap: 0.6rem 0;
+    padding: 0.7rem 1rem;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  /* Hide the thin vertical dividers — not needed when wrapping */
+  .hero-stats-bar .stat-divider {
+    display: none;
+  }
+
+  /* Each stat takes ~33% so all 3 sit in one row;
+     if phone is very narrow they wrap to 2 rows (adds height, no scroll) */
+  .hero-stats-bar .stat-item {
+    flex: 1 1 28%;
+    min-width: 0;
+    align-items: flex-start;
+  }
+
+  .stat-num {
+    font-size: 1.25rem;
+    white-space: nowrap;
+  }
+
+  .stat-lbl {
+    font-size: 0.58rem;
+    white-space: normal;
+    line-height: 1.3;
+    max-width: 90px;
+  }
+
+  /* Fix 5: CTA "Email Us" button — add side margins so it doesn't touch edges */
+  #cta .cta-actions #cta-email {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    box-sizing: border-box !important;
+  }
+
+}
+
+/* =========================================================
+   EMAIL HERO BUTTON — base style (all screen sizes)
+   Matches the look of btn-whatsapp-link / btn-insta-link
+   ========================================================= */
+.btn-email-hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a5276;
+  background: rgba(214, 234, 248, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(26, 82, 118, 0.25);
+  padding: 0.72rem 1.2rem;
+  border-radius: 8px;
+  transition: var(--trans-slow);
+}
+
+.btn-email-hero-link:hover {
+  background: rgba(26, 82, 118, 0.14);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(26, 82, 118, 0.18);
+}
+
+/* =========================================================
+   MOBILE FIXES — round 3 (≤768px)
+   Desktop completely untouched.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Fix: Hero background — shift right so the subject/person shows on right */
+  #hero {
+    background-position: 80% center;
+  }
+
+  /* Fix: Hero social buttons — 2×2 grid (YouTube+Instagram | WhatsApp+Email) */
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  /* Primary (Explore Japa) and ghost (Spiritual Courses) stay full-width */
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  /* 4 social buttons: exactly half-width each → 2 per row */
+  .btn-youtube-link,
+  .btn-insta-link,
+  .btn-whatsapp-link,
+  .btn-email-hero-link {
+    flex: 0 0 calc(50% - 0.25rem);
+    width: calc(50% - 0.25rem);
+    justify-content: center;
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 0.7rem 0.6rem;
+    box-sizing: border-box;
+  }
+
+  /* Fix: CTA email button — pad the CTA content container so buttons
+     don't reach screen edges (works regardless of button width value) */
+  #cta .cta-content {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* Also force the email button to respect the padded container */
+  #cta #cta-email {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+}
+
+/* =========================================================
+   MOBILE FIXES — round 4 (≤768px)
+   Correct 2×2 social grid order + override earlier !important width
+   Row 1: YouTube | WhatsApp
+   Row 2: Instagram | Email Us
+   Desktop: untouched (order only inside this media query)
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Force exactly 2-per-row — !important beats earlier round-2 width:auto !important */
+  .btn-youtube-link,
+  .btn-insta-link,
+  .btn-whatsapp-link,
+  .btn-email-hero-link {
+    flex: 0 0 calc(50% - 0.25rem) !important;
+    width: calc(50% - 0.25rem) !important;
+    max-width: calc(50% - 0.25rem) !important;
+    align-self: stretch !important;
+    justify-content: center !important;
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 0.7rem 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Row 1: YouTube (left) | WhatsApp (right) */
+  .btn-youtube-link  { order: 1; }
+  .btn-whatsapp-link { order: 2; }
+
+  /* Row 2: Instagram (left) | Email Us (right) */
+  .btn-insta-link      { order: 3; }
+  .btn-email-hero-link { order: 4; }
+
+}
+
+/* =========================================================
+   MOBILE FIXES — round 5 (≤768px)
+   1. Founders: content (name/title) BEFORE photo on mobile
+   2. CTA email button: text fits inside box (no overflow)
+   Desktop: zero changes.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Founders: show text block first, photo second — for BOTH profiles */
+  .founder-profile .founder-content  { order: 1; }
+  .founder-profile .founder-portrait { order: 2; }
+
+  /* CTA email button: allow text to wrap so it stays inside the box */
+  #cta #cta-email {
+    white-space: normal !important;
+    word-break: break-word !important;
+    font-size: 0.72rem !important;
+    text-align: center !important;
+    line-height: 1.35 !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+}
+
+/* =========================================================
+   MOBILE FIXES — round 6 (≤768px)
+   Founders: Heading → Photo → Credentials ordering
+   Technique: display:contents dissolves .founder-content wrapper
+   so its children participate directly in the flex ordering.
+   Desktop: zero visual change.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Dissolve the wrapper — children flow into .founder-profile's flex context */
+  .founder-content {
+    display: contents;
+  }
+
+  /* .founder-profile becomes a flex column (overrides the grid) */
+  .founder-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  /* ── Ordering ──────────────────────────────────────────
+     1: Eyebrow label  (CO-FOUNDER & FACILITATOR)
+     2: Name heading   (Dashrath / Sumukhi)
+     3: Subtitle       (Assistant Professor — Sumukhi only)
+     4: Photo portrait
+     5: Credentials list
+     ────────────────────────────────────────────────────── */
+  .founder-profile .eyebrow            { order: 1; margin-bottom: 0.2rem; }
+  .founder-profile .founder-name       { order: 2; }
+  .founder-profile .founder-subtitle   { order: 3; margin-bottom: 0.6rem; }
+  .founder-portrait                    { order: 4 !important; max-width: 220px; margin: 0.4rem auto; }
+  .founder-profile .founder-credentials { order: 5; }
+
+}
+
