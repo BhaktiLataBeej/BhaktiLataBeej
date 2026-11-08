@@ -2,7 +2,7 @@
    BHAKTI LATA BEEJ — Premium Design System v3
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+/* (Google Fonts imported via optimized link in HTML head) */
 
 /* =========================================================
    1. DESIGN TOKENS
@@ -128,12 +128,16 @@ strong { font-weight: 600; }
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--saffron);
+  color: #9E3714;
   margin-bottom: 0.9rem;
 }
 
 .eyebrow--light {
-  color: rgba(197, 160, 89, 0.9);
+  color: #F3D17C;
+}
+
+.eyebrow--gold {
+  color: #FFE082 !important;
 }
 
 .section-title {
@@ -420,7 +424,10 @@ header.scrolled {
       rgba(255, 252, 247, 0.05) 80%,
       transparent 100%
     ),
-    url('assets/hero_bg.jpg');
+    image-set(
+      url('assets/hero_bg.webp') type('image/webp'),
+      url('assets/hero_bg.jpg') type('image/jpeg')
+    );
   background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1408,7 +1415,8 @@ body > footer {
   line-height: 1.75;
 }
 
-.footer-col h4 {
+.footer-col h4,
+.footer-col h3 {
   font-family: var(--font-display);
   font-size: 1.15rem;
   color: var(--white);
@@ -3596,7 +3604,8 @@ footer[role="contentinfo"] {
     height: 52px;
   }
 
-  .footer-col h4 {
+  .footer-col h4,
+  .footer-col h3 {
     font-size: 1rem;
     margin-bottom: 1rem;
   }

@@ -51,7 +51,7 @@ function initThree() {
   window.addEventListener('resize', onResize);
   document.addEventListener('mousemove', onMouseMove, { passive: true });
 
-  animate();
+  startAnimation();
 }
 
 // Floating gold dust particles
@@ -134,7 +134,27 @@ function onResize() {
 
 window.setThreeScrollProgress = function () {};
 
+let isThreeRunning = false;
+
+function startAnimation() {
+  if (!isThreeRunning) {
+    isThreeRunning = true;
+    animFrameId = requestAnimationFrame(animate);
+  }
+}
+
+function stopAnimation() {
+  if (isThreeRunning) {
+    isThreeRunning = false;
+    if (animFrameId) {
+      cancelAnimationFrame(animFrameId);
+      animFrameId = null;
+    }
+  }
+}
+
 function animate(time) {
+  if (!isThreeRunning) return;
   animFrameId = requestAnimationFrame(animate);
   const t = (time || 0) * 0.001;
 
@@ -150,6 +170,42 @@ function animate(time) {
   renderer.render(scene, camera);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(initThree, 120);
-});
+function scheduleThreeInit() {
+  const container = document.getElementById('canvas-container');
+  if (!container) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!scene) {
+            initThree();
+          }
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(container);
+  } else {
+    initThree();
+    startAnimation();
+  }
+}
+
+if (document.readyState === 'complete') {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(scheduleThreeInit, { timeout: 1200 });
+  } else {
+    setTimeout(scheduleThreeInit, 400);
+  }
+} else {
+  window.addEventListener('load', () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(scheduleThreeInit, { timeout: 1200 });
+    } else {
+      setTimeout(scheduleThreeInit, 400);
+    }
+  });
+}
