@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DivineQuest – Spiritual Education Quiz App for Kids | Bhakti Lata Beej</title>
+  <meta name="description" content="DivineQuest is an educational and spiritual quiz application published by Bhakti Lata Beej. Explore Vedic stories of Radha-Krishna, Sita-Ram, Shiv-Parvati and Hanuman through interactive quizzes designed for kids and families.">
+  <link rel="canonical" href="https://bhaktilatabeej.com/divinequest/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bhakti Lata Beej">
+  <meta property="og:title" content="DivineQuest – Spiritual Education Quiz App for Kids | Bhakti Lata Beej">
+  <meta property="og:description" content="Interactive spiritual quiz app for children and families. Explore Vedic wisdom, stories, and sacred traditions with 100% offline, kid-safe gameplay.">
+  <meta property="og:url" content="https://bhaktilatabeej.com/divinequest/">
+  <meta property="og:image" content="https://bhaktilatabeej.com/assets/divine_quest_app.jpg">
+
+  <link rel="icon" type="image/png" href="/assets/frame_220.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css?v=48">
+
+  <style>
+    /* Dedicated DivineQuest Landing Page Styles */
+    .dq-hero {
+      position: relative;
+      padding: 130px 0 80px;
+      background: radial-gradient(ellipse 90% 80% at 50% 20%, #301438 0%, #17091c 65%, #0d0411 100%);
+      color: #fff;
+      overflow: hidden;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .dq-hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(235, 185, 85, 0.18) 0%, rgba(147, 51, 234, 0.15) 50%, transparent 70%);
+      top: 50%;
+      right: 15%;
+      transform: translate(50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .dq-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dq-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #FFDF79;
+      background: rgba(235, 185, 85, 0.15);
+      border: 1px solid rgba(235, 185, 85, 0.35);
+      padding: 0.4rem 1.1rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+    }
+
+    .dq-title {
+      font-family: var(--font-display, serif);
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      line-height: 1.15;
+      color: #FFF9E6;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .dq-title span {
+      background: linear-gradient(135deg, #FFE899 0%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .dq-subtitle {
+      font-family: var(--font-body, serif);
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: #EBDDC8;
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .dq-dual-showcase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .dq-phone-card {
+      width: 250px;
+      background: #120a17;
+      border-radius: 40px;
+      padding: 10px;
+      border: 3px solid #5a3c26;
+      box-shadow:
+        0 0 0 1px rgba(255, 215, 0, 0.2),
+        0 30px 70px rgba(0, 0, 0, 0.7),
+        0 50px 100px rgba(88, 28, 135, 0.45);
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .dq-phone-card.phone-secondary {
+      position: absolute;
+      left: calc(50% + 50px);
+      top: 25px;
+      width: 230px;
+      transform: rotateY(-14deg) rotateX(6deg) rotateZ(4deg) scale(0.92);
+      opacity: 0.85;
+      filter: brightness(0.92);
+      z-index: 1;
+    }
+
+    .dq-phone-card.phone-primary {
+      position: relative;
+      z-index: 2;
+      transform: rotateY(-6deg) rotateX(4deg) rotateZ(-2deg);
+    }
+
+    .dq-dual-showcase:hover .phone-secondary {
+      transform: rotateY(-8deg) rotateX(2deg) rotateZ(2deg) scale(0.96) translateX(25px);
+      opacity: 1;
+      filter: brightness(1);
+    }
+
+    .dq-screen {
+      width: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      aspect-ratio: 9 / 19.5;
+      background: #17091c;
+      border: 1px solid rgba(0,0,0,0.4);
+    }
+
+    .dq-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Categories Grid */
+    .dq-section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .dq-section.bg-dark {
+      background: #120716;
+      color: #fff;
+    }
+
+    .dq-section.bg-light {
+      background: #FAF6EE;
+      color: #2D2721;
+    }
+
+    .dq-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin-top: 3rem;
+    }
+
+    .dq-quest-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(235, 185, 85, 0.22);
+      border-radius: 18px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .dq-quest-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(235, 185, 85, 0.55);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dq-quest-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+
+    .dq-quest-title {
+      font-family: var(--font-display, serif);
+      font-size: 1.45rem;
+      color: #FFE699;
+      margin-bottom: 0.5rem;
+    }
+
+    .dq-quest-desc {
+      font-size: 0.92rem;
+      color: #D2C4B2;
+      line-height: 1.55;
+    }
+
+    .dq-badge-count {
+      display: inline-block;
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #2A1000;
+      background: #FFDF79;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      margin-top: 1rem;
+    }
+
+    /* Feature pillars */
+    .feature-pillar {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 1.8rem;
+    }
+
+    .feature-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(197, 155, 75, 0.18);
+      border: 1px solid rgba(197, 155, 75, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      color: var(--saffron, #b35900);
+    }
+
+    .feature-text h4 {
+      font-family: var(--font-display, serif);
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
+      color: #2D2721;
+    }
+
+    .feature-text p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: #554D43;
+    }
+
+    @media (max-width: 900px) {
+      .dq-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+      }
+      .dq-subtitle {
+        margin: 0 auto 2rem;
+      }
+      .dq-hero-actions {
+        justify-content: center;
+      }
+      .dq-phone-card.phone-secondary {
+        display: none;
+      }
+      .dq-phone-card.phone-primary {
+        transform: none;
+        width: 220px;
+      }
+    }
+  </style>
+</head>
+<body class="legal-standalone-body">
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header" class="scrolled">
+    <div class="nav-container">
+      <a href="https://bhaktilatabeej.com/" class="logo-area" id="logo-nav" aria-label="Bhakti Lata Beej — Home">
+        <img src="/assets/frame_214.png" alt="Bhakti Lata Beej" class="header-logo-icon">
+      </a>
+      
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" id="nav-menu" role="list">
+          <li class="nav-item" role="listitem"><a href="https://bhaktilatabeej.com/">Home</a></li>
+          <li class="nav-item" role="listitem"><a href="#categories">Quests</a></li>
+          <li class="nav-item" role="listitem"><a href="#safety">Child Safety</a></li>
+          <li class="nav-item" role="listitem"><a href="https://bhaktilatabeej.com/divinequest/privacy-policy">Privacy Policy</a></li>
+          <li class="nav-item" role="listitem"><a href="https://bhaktilatabeej.com/divinequest/terms">Terms &amp; Conditions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="dq-hero">
+    <div class="dq-hero-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="dq-hero-grid">
+        <div class="dq-hero-content">
+          <span class="dq-eyebrow">Spiritual Education Quiz App for Kids</span>
+          <h1 class="dq-title">Discover Vedic Wisdom with <span>DivineQuest</span></h1>
+          <p class="dq-subtitle">
+            An educational and spiritual quiz adventure published by Bhakti Lata Beej. Explore timeless stories of Radha-Krishna, Sita-Ram, Shiv-Parvati and Hanuman through interactive word puzzles, diya challenges, and 108+ sacred revelations.
+          </p>
+
+          <div class="dq-hero-actions" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="https://play.google.com/store/apps/details?id=com.bhaktilatabeej.divinequest" target="_blank" rel="noopener noreferrer" class="btn-playstore-large">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M3 20.5v-17c0-.55.33-1.02.84-1.22l10.97 9.72L3.84 21.72c-.51-.2-.84-.67-.84-1.22zM16.22 13.5l3.26-1.84c.64-.36.64-1.32 0-1.68l-3.26-1.84-2.73 2.68 2.73 2.68zm-2.88 2.82l-2.48-2.43-8.83 7.82c.23.07.48.07.72-.07l10.59-5.32zm-2.48-8.64l2.48-2.43L2.75 0.07c-.24-.14-.49-.14-.72-.07l8.83 7.82z"/></svg>
+              <div class="playstore-text">
+                <span class="ps-sub">GET IT ON</span>
+                <span class="ps-main">Google Play Store</span>
+              </div>
+            </a>
+            <a href="#safety" class="btn-ghost-dq">
+              <span>Why Parents Love It</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </a>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem; font-size: 0.88rem; color: #D2C4B2;">
+            <a href="https://bhaktilatabeej.com/divinequest/privacy-policy" style="color: #FFDF79; text-decoration: underline;">Privacy Policy</a>
+            <span>&middot;</span>
+            <a href="https://bhaktilatabeej.com/divinequest/terms" style="color: #FFDF79; text-decoration: underline;">Terms &amp; Conditions</a>
+            <span>&middot;</span>
+            <span>100% Offline &amp; Ad-Free</span>
+          </div>
+        </div>
+
+        <!-- Visual Dual Phone Mockup -->
+        <div class="dq-dual-showcase">
+          <!-- Primary: Character Categories Hub -->
+          <div class="dq-phone-card phone-primary" role="img" aria-label="DivineQuest Categories Screen">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <div class="dq-screen">
+              <img src="/assets/divine_quest_app.jpg" alt="DivineQuest Main Hub with Categories: Radha Krishna, Sita Ram, Shiv Parvati, Hanuman">
+            </div>
+            <div class="phone-home-bar" aria-hidden="true"></div>
+          </div>
+
+          <!-- Secondary: Live Quiz Gameplay Screen -->
+          <div class="dq-phone-card phone-secondary" role="img" aria-label="DivineQuest Quiz Gameplay Screen" aria-hidden="true">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <div class="dq-screen">
+              <img src="/assets/divine_quest_quiz.jpg" alt="DivineQuest Interactive Quiz Screen with Letter Tiles and Diya Attempts">
+            </div>
+            <div class="phone-home-bar" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES SECTION ===== -->
+  <section id="categories" class="dq-section bg-dark">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow eyebrow--gold">Sacred Quest Categories</span>
+        <h2 class="section-title section-title--light">Explore Timeless Vedic Stories</h2>
+        <p class="section-lead-quote light-text" style="max-width: 680px; margin: 0 auto;">
+          Each sacred chapter offers curated questions and stories that plant seeds of wisdom, devotion, and moral courage in young minds.
+        </p>
+      </div>
+
+      <div class="dq-card-grid">
+        <!-- Card 1 -->
+        <div class="dq-quest-card">
+          <span class="dq-quest-icon">🪈</span>
+          <h3 class="dq-quest-title">Radha &amp; Krishna</h3>
+          <p class="dq-quest-desc">Discover the divine pastimes of Vrindavan, Govardhan Leela, sacred rivers like Yamuna, and pure loving devotion.</p>
+          <span class="dq-badge-count">108 Discovered</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="dq-quest-card">
+          <span class="dq-quest-icon">🏹</span>
+          <h3 class="dq-quest-title">Sita &amp; Ram</h3>
+          <p class="dq-quest-desc">Learn about righteousness, Maryada Purushottam Bhagavan Ram, Mother Sita's devotion, and the virtues of truth and duty.</p>
+          <span class="dq-badge-count">108 Discovered</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="dq-quest-card">
+          <span class="dq-quest-icon">🔱</span>
+          <h3 class="dq-quest-title">Shiv &amp; Parvati</h3>
+          <p class="dq-quest-desc">Uncover lessons of meditation, cosmic harmony, humility, and family harmony from Mount Kailash and the Himalayas.</p>
+          <span class="dq-badge-count">54 Discovered</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="dq-quest-card">
+          <span class="dq-quest-icon">✨</span>
+          <h3 class="dq-quest-title">Lord Hanuman</h3>
+          <p class="dq-quest-desc">Be inspired by selfless service, fearless strength, humility, and unwavering loyalty from Sri Hanuman's epic quests.</p>
+          <span class="dq-badge-count">54 Discovered</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW CHILDREN LEARN & SAFETY ===== -->
+  <section id="safety" class="dq-section bg-light">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
+        
+        <!-- Pillar 1: Engaging Mechanics -->
+        <div>
+          <span class="eyebrow">Interactive Learning</span>
+          <h2 style="font-family: var(--font-display, serif); font-size: 2.2rem; color: #2D2721; margin: 0.5rem 0 1.5rem;">
+            Designed to Make Spiritual Learning Joyful
+          </h2>
+
+          <div class="feature-pillar">
+            <div class="feature-icon-box">🪔</div>
+            <div class="feature-text">
+              <h4>Auspicious Diya Attempts</h4>
+              <p>Traditional brass diyas illuminate every question, encouraging thoughtful contemplation rather than rushed guesswork.</p>
+            </div>
+          </div>
+
+          <div class="feature-pillar">
+            <div class="feature-icon-box">🪶</div>
+            <div class="feature-text">
+              <h4>Peacock Feather Clues</h4>
+              <p>Helpful hints guided by Sri Krishna's peacock feather assist children when they encounter challenging sacred words.</p>
+            </div>
+          </div>
+
+          <div class="feature-pillar">
+            <div class="feature-icon-box">🧩</div>
+            <div class="feature-text">
+              <h4>Vedic Letter Tiles</h4>
+              <p>Engaging word puzzles improve spelling, vocabulary, and active recall of important sacred personalities, holy rivers, and shlokas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Safety & Privacy -->
+        <div style="background: #FFF; padding: 2.4rem; border-radius: 20px; border: 1px solid rgba(197, 155, 75, 0.28); box-shadow: 0 15px 40px rgba(0,0,0,0.05);">
+          <span class="eyebrow eyebrow--gold">Privacy-First Guarantee</span>
+          <h3 style="font-family: var(--font-display, serif); font-size: 1.8rem; color: #2D2721; margin: 0.5rem 0 1.2rem;">
+            100% Kid-Safe &amp; Offline
+          </h3>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: #554D43; margin-bottom: 1.5rem;">
+            At Bhakti Lata Beej, we prioritize your family's safety above all else. DivineQuest is built from the ground up with strict privacy principles:
+          </p>
+
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.95rem; color: #3C362F;">
+            <li style="display: flex; gap: 10px; align-items: center;">
+              <span style="color: #2a3600; font-weight: bold;">✓</span>
+              <span><strong>Completely Offline:</strong> No internet connection required to play.</span>
+            </li>
+            <li style="display: flex; gap: 10px; align-items: center;">
+              <span style="color: #2a3600; font-weight: bold;">✓</span>
+              <span><strong>No Accounts or Logins:</strong> No emails, phone numbers, or passwords needed.</span>
+            </li>
+            <li style="display: flex; gap: 10px; align-items: center;">
+              <span style="color: #2a3600; font-weight: bold;">✓</span>
+              <span><strong>Zero Advertisements:</strong> No commercial ads, banners, or popups.</span>
+            </li>
+            <li style="display: flex; gap: 10px; align-items: center;">
+              <span style="color: #2a3600; font-weight: bold;">✓</span>
+              <span><strong>Local Storage Only:</strong> Progress is stored solely on your device.</span>
+            </li>
+          </ul>
+
+          <div style="margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08); display: flex; gap: 1.2rem; font-size: 0.9rem;">
+            <a href="https://bhaktilatabeej.com/divinequest/privacy-policy" style="color: var(--saffron, #b35900); font-weight: 600; text-decoration: underline;">Read Full Privacy Policy &rarr;</a>
+            <a href="https://bhaktilatabeej.com/divinequest/terms" style="color: var(--saffron, #b35900); font-weight: 600; text-decoration: underline;">Terms &amp; Conditions &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA / DOWNLOAD ===== -->
+  <section class="dq-section" style="background: radial-gradient(ellipse 80% 70% at 50% 50%, #2A0E35 0%, #15061b 100%); color: #fff; text-align: center;">
+    <div class="container" style="max-width: 760px;">
+      <span class="dq-eyebrow">Join the Quest Today</span>
+      <h2 style="font-family: var(--font-display, serif); font-size: clamp(2rem, 3.5vw, 2.8rem); color: #FFF9E6; margin-bottom: 1rem;">
+        Plant Seeds of Sacred Wisdom in Your Child's Heart
+      </h2>
+      <p style="font-size: 1.1rem; color: #EBDDC8; margin-bottom: 2.2rem; line-height: 1.6;">
+        Download DivineQuest and inspire your young ones with the beauty, devotion, and moral character of our timeless Vedic traditions.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;">
+        <a href="https://play.google.com/store/apps/details?id=com.bhaktilatabeej.divinequest" target="_blank" rel="noopener noreferrer" class="btn-playstore-large">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M3 20.5v-17c0-.55.33-1.02.84-1.22l10.97 9.72L3.84 21.72c-.51-.2-.84-.67-.84-1.22zM16.22 13.5l3.26-1.84c.64-.36.64-1.32 0-1.68l-3.26-1.84-2.73 2.68 2.73 2.68zm-2.88 2.82l-2.48-2.43-8.83 7.82c.23.07.48.07.72-.07l10.59-5.32zm-2.48-8.64l2.48-2.43L2.75 0.07c-.24-.14-.49-.14-.72-.07l8.83 7.82z"/></svg>
+          <div class="playstore-text">
+            <span class="ps-sub">GET IT ON</span>
+            <span class="ps-main">Google Play Store</span>
+          </div>
+        </a>
+        <a href="https://bhaktilatabeej.com/" class="btn-ghost-dq" style="padding: 0.85rem 1.6rem;">
+          <span>Visit Bhakti Lata Beej Home</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-banner">
+            <a href="https://bhaktilatabeej.com/">
+              <img src="/assets/frame_214.png" alt="Bhakti Lata Beej Logo" class="footer-logo-icon">
+            </a>
+          </div>
+          <p class="footer-mission" style="font-size: 1.15rem; font-weight: 500; color: var(--cream, #f5ebd9); margin-top: 0.8rem;">
+            Bhakti Lata Beej
+          </p>
+          <p class="footer-mission">
+            Planting Seeds of Wisdom. Nurturing Values for Life.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="https://bhaktilatabeej.com/">Bhakti Lata Beej Homepage</a></li>
+            <li><a href="https://bhaktilatabeej.com/#japa-sanga">Japa Sanga App</a></li>
+            <li><a href="https://bhaktilatabeej.com/divinequest/privacy-policy">Privacy Policy</a></li>
+            <li><a href="https://bhaktilatabeej.com/divinequest/terms">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact &amp; Support</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <span class="label">Support Email</span>
+              <a href="mailto:supportbhaktilatabeej@gmail.com" class="footer-support-email" style="color: var(--gold-light, #ffd978);">supportbhaktilatabeej@gmail.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <span class="label">Official Website</span>
+              <a href="https://bhaktilatabeej.com/">https://bhaktilatabeej.com/</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-legal-links">
+          <span>&copy; 2026 Bhakti Lata Beej</span>
+          <span class="legal-sep">&middot;</span>
+          <a href="https://bhaktilatabeej.com/divinequest/privacy-policy" class="legal-link">Privacy Policy</a>
+          <span class="legal-sep">&middot;</span>
+          <a href="https://bhaktilatabeej.com/divinequest/terms" class="legal-link">Terms &amp; Conditions</a>
+          <span class="legal-sep">&middot;</span>
+          <a href="https://bhaktilatabeej.com/" class="legal-link">Bhakti Lata Beej Homepage</a>
+        </p>
+        <p class="footer-tagline">Planting Seeds of Wisdom. Nurturing Values for Life.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

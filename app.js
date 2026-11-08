@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initHeroAnimations();
   initJapaPhoneParallax();
+  initDivineQuestSwitcher();
   initTransformationPath();
   initMagneticButtons();
   initInteractiveJapaWidget();
@@ -196,22 +197,49 @@ function initHeroAnimations() {
 }
 
 // ============================================================
-// 6. JAPA PHONE PARALLAX
+// 6. PHONE PARALLAX & APP MOCKUPS
 // ============================================================
 function initJapaPhoneParallax() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-  const container = document.querySelector('.phone-mockup-container');
-  if (!container) return;
+  const mockups = document.querySelectorAll('.phone-mockup-container:not(.divinequest-mockup-peek)');
+  mockups.forEach(container => {
+    const parent = container.closest('.japa-grid') || container.closest('section') || '#japa-sanga';
+    gsap.to(container, {
+      scrollTrigger: {
+        trigger: parent,
+        start: 'top 80%',
+        end: 'bottom center',
+        scrub: 1.5,
+      },
+      transform: 'rotateY(-6deg) rotateX(3deg) rotateZ(1deg) translateY(-20px)',
+      ease: 'none',
+    });
+  });
+}
 
-  gsap.to(container, {
-    scrollTrigger: {
-      trigger: '#japa-sanga',
-      start: 'top 80%',
-      end: 'bottom center',
-      scrub: 1.5,
-    },
-    transform: 'rotateY(-6deg) rotateX(3deg) rotateZ(1deg) translateY(-20px)',
-    ease: 'none',
+function initDivineQuestSwitcher() {
+  const pills = document.querySelectorAll('.dq-pill');
+  const mockupImg = document.getElementById('dq-mockup-img');
+  if (!pills.length || !mockupImg) return;
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetImg = pill.getAttribute('data-img');
+      if (!targetImg) return;
+
+      pills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
+
+      mockupImg.style.opacity = '0.25';
+      setTimeout(() => {
+        mockupImg.src = targetImg;
+        mockupImg.style.opacity = '1';
+      }, 150);
+    });
   });
 }
 

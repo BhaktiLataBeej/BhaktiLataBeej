@@ -2920,6 +2920,185 @@ body > footer {
   animation: pulse-glow 5s ease-in-out infinite alternate;
 }
 
+/* =========================================================
+   DIVINEQUEST SHOWCASE & DUAL MOCKUP STYLING
+   ========================================================= */
+.divinequest-glow-back {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(235, 185, 85, 0.24) 0%, rgba(138, 43, 226, 0.18) 45%, transparent 70%);
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-glow 6s ease-in-out infinite alternate;
+}
+
+.phone-mockup-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 440px;
+}
+
+.divinequest-mockup {
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.18),
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 45px 90px rgba(88, 28, 135, 0.35);
+  border: 2.5px solid #4a3525;
+}
+
+.divinequest-mockup-peek {
+  position: absolute;
+  top: 15px;
+  left: calc(50% + 45px);
+  z-index: 1;
+  width: 195px;
+  opacity: 0.82;
+  filter: brightness(0.9);
+  transform: rotateY(-18deg) rotateX(8deg) rotateZ(5deg) scale(0.92);
+  transition: transform 0.6s var(--ease-out), opacity 0.6s, filter 0.6s;
+  display: block;
+}
+
+.phone-mockup-wrapper:hover .divinequest-mockup-peek {
+  transform: rotateY(-10deg) rotateX(4deg) rotateZ(3deg) scale(0.96) translateX(15px);
+  opacity: 1;
+  filter: brightness(1);
+}
+
+#dq-mockup-img {
+  transition: opacity 0.22s ease-in-out;
+}
+
+.dq-badge {
+  background: linear-gradient(135deg, rgba(235, 185, 85, 0.25) 0%, rgba(147, 51, 234, 0.25) 100%) !important;
+  color: #FFE699 !important;
+  border: 1px solid rgba(235, 185, 85, 0.45) !important;
+}
+
+.dq-screen-pills {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+  position: relative;
+  z-index: 3;
+  flex-wrap: wrap;
+}
+
+.dq-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.42rem 0.95rem;
+  font-family: var(--font-ui, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5ebd9;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dq-pill .pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: all 0.25s ease;
+}
+
+.dq-pill:hover {
+  background: rgba(235, 185, 85, 0.15);
+  border-color: rgba(235, 185, 85, 0.4);
+  color: #fff;
+}
+
+.dq-pill.active {
+  background: rgba(235, 185, 85, 0.22);
+  color: #FFDF79;
+  border-color: rgba(235, 185, 85, 0.65);
+}
+
+.dq-pill.active .pill-dot {
+  background: #FFDF79;
+  box-shadow: 0 0 8px rgba(255, 223, 121, 0.85);
+}
+
+.dq-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn-ghost-dq {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--font-ui, sans-serif);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #FFDF79;
+  background: rgba(235, 185, 85, 0.1);
+  border: 1px solid rgba(235, 185, 85, 0.35);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost-dq:hover {
+  background: rgba(235, 185, 85, 0.22);
+  border-color: #FFDF79;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.dq-legal-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.15rem;
+  font-size: 0.85rem;
+  color: rgba(245, 235, 217, 0.75);
+}
+
+.dq-legal-label {
+  font-weight: 500;
+  color: rgba(245, 235, 217, 0.6);
+}
+
+.dq-legal-link {
+  color: #FFDF79;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.dq-legal-link:hover {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .divinequest-mockup-peek {
+    display: none;
+  }
+  .phone-mockup-wrapper {
+    min-height: auto;
+  }
+}
+
+
 
 
 
